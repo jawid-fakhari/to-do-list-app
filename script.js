@@ -1,16 +1,14 @@
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 const button = document.querySelector("button");
-
+//event listener
 button.addEventListener("click", () => {
-  if (inputBox.value === "") {
-    alert("Add a new Task!");
-  } else {
-    let newTask = `<li>${inputBox.value}<span>🗑️</span></li>`;
-    listContainer.insertAdjacentHTML("afterbegin", newTask);
+  addTask();
+});
+document.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    addTask();
   }
-  inputBox.value = "";
-  storeData();
 });
 
 listContainer.addEventListener("click", (e) => {
@@ -22,7 +20,17 @@ listContainer.addEventListener("click", (e) => {
     storeData();
   }
 });
-
+//Functions
+const addTask = function () {
+  if (inputBox.value === "") {
+    alert("Add a new Task!");
+  } else {
+    let newTask = `<li>${inputBox.value}<span>🗑️</span></li>`;
+    listContainer.insertAdjacentHTML("afterbegin", newTask);
+  }
+  inputBox.value = "";
+  storeData();
+};
 //save in local storage then call it
 function storeData() {
   localStorage.setItem("data", listContainer.innerHTML);

@@ -1,0 +1,11 @@
+{
+  "name": "To-Do List App",
+  "version": "1.0.0",
+  "description": "Add your daily tasks on this list.",
+  "manifest_version": 3,
+  "author": "Jawid Fakhari",
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "To-Do List App"
+  }
+}
